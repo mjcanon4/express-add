@@ -8,15 +8,15 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/bmiCalculator", function (req, res) {
+app.get("/bmicalculator", function (req, res) {
   res.sendFile(__dirname + "/bmiCalc.html");
 });
 
 app.post("/bmiCalculator", function (req, res) {
-  var height = parseFloat(req.body.height);
-  var weight = parseFloat(req.body.weight);
-  var bmi = weight / (height * height);
-  res.send("Your BMI is " + height);
+  var height = req.body.height;
+  var weight = req.body.weight;
+  var bmi = Number(height) * Number(weight);
+  res.send("Your BMI is " + bmi);
 });
 
 app.post("/", function (req, res) {
